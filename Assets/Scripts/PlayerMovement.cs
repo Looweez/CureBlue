@@ -1,12 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputHandler))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float baseSpeed = 5f;
 
     private Rigidbody2D rb;
     private PlayerInputHandler input;
+    private float currentSpeed;
+    private bool isSpeedModified = false;
 
     void Awake()
     {
@@ -16,7 +20,29 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = input.MovementInput * moveSpeed;
+        rb.linearVelocity = input.MovementInput * baseSpeed;
+    }
+    
+    public void ApplySpeedModifier(float multiplier, float duration)
+    {
+        StartCoroutine(SpeedModifierCoroutine(multiplier, duration));
+    }
+    
+    private IEnumerator SpeedModifierCoroutine(float multiplier, float duration)
+    {
+        isSpeedModified = true;
+        currentSpeed = baseSpeed * multiplier;
+
+        // Optional: visual feedback (e.g., dim the sprite)
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null) sr.color = new Color(0.6f, 0.8f, 0.6f, 1f);
+
+        yield return new WaitForSeconds(duration);
+
+        currentSpeed = baseSpeed;
+        isSpeedModified = false;
+
+        if (sr != null) sr.color = Color.white;
     }
 }
 

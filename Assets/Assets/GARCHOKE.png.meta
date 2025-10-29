@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GARCHOKE_0: 2125223397767776392
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

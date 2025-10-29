@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      uglymossplush_0: -7016259660884033381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
