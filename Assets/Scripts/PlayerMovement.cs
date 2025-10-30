@@ -11,16 +11,29 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInputHandler input;
     private float currentSpeed;
     private bool isSpeedModified = false;
+    private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         input = GetComponent<PlayerInputHandler>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = input.MovementInput * baseSpeed;
+        //rb.linearVelocity = input.MovementInput * baseSpeed;
+        Vector2 movement = input.MovementInput * baseSpeed;
+        rb.linearVelocity = movement;
+        
+        if (movement.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (movement.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
     
     public void ApplySpeedModifier(float multiplier, float duration)
