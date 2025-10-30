@@ -8,8 +8,16 @@ public class Cage : MonoBehaviour, IInteractable
     public void Unlock()
     {
         isLocked = false;
+        Debug.Log("Cage unlocked!");
         AudioManager.Instance.PlaySFX("CageUnlocked");
+
+        // optional visual feedback
+        var sr = GetComponent<SpriteRenderer>();
+        if (sr != null)
+            sr.color = Color.yellow;
+        
     }
+
 
     public void Interact()
     {
@@ -21,6 +29,7 @@ public class Cage : MonoBehaviour, IInteractable
 
         Debug.Log("Fish freed!");
         AudioManager.Instance.PlaySFX("FishFreed");
+        gameObject.SetActive(false);
         // trigger animation or win condition
     }
 }
