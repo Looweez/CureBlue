@@ -18,12 +18,14 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         input = GetComponent<PlayerInputHandler>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        currentSpeed = baseSpeed;
     }
 
     void FixedUpdate()
     {
         //rb.linearVelocity = input.MovementInput * baseSpeed;
-        Vector2 movement = input.MovementInput * baseSpeed;
+        Vector2 movement = input.MovementInput * currentSpeed;
         rb.linearVelocity = movement;
         
         if (movement.x < 0)

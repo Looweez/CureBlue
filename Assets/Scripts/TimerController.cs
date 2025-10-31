@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
     [SerializeField] private float startTime = 60f;
     private ITimer timer;
+    public GameObject LosePanel;
 
     public ITimer Timer => timer;
 
@@ -31,7 +33,18 @@ public class TimerController : MonoBehaviour
 
     private void HandleTimerEnd()
     {
-        Debug.Log("Time’s up!");
         FindObjectOfType<GameManager>()?.LoseLevel();
+        
+        Time.timeScale = 0f;
+        if (LosePanel != null)
+        {
+            LosePanel.SetActive(true);
+        }
+    }
+    
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
