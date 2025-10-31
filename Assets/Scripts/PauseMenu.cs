@@ -5,6 +5,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pausePanel;
     public GameObject settingsPanel;
+    public GameObject WinPanel;
     private bool isPaused = false;
 
     void Update()
@@ -26,6 +27,7 @@ public class PauseMenu : MonoBehaviour
     {
         isPaused = true;
         pausePanel.SetActive(true);
+        WinPanel.SetActive(false);
         Time.timeScale = 0f;  
     }
 

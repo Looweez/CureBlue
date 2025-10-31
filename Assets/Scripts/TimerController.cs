@@ -13,6 +13,7 @@ public class TimerController : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         timer = new CountdownTimer();
         (timer as CountdownTimer).OnTimerEnd += HandleTimerEnd;
     }

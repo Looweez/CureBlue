@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,7 +29,11 @@ public class GameManager : MonoBehaviour
     }
     public void LoseLevel()
     {
-        Debug.Log("Player lost! Restarting level...");
-        // Handle game-over logic here (UI, reload scene, etc.)
+        Debug.Log("Player lost");
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("Level_2");
     }
 }

@@ -6,6 +6,9 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private SettingManager settingsManager;
     [SerializeField] private Slider masterVolumeSlider;
     [SerializeField] private Slider brightnessSlider;
+    
+    public GameObject pausePanel;
+    public GameObject settingsPanel;
 
     private void Start()
     {
@@ -32,5 +35,11 @@ public class SettingsUI : MonoBehaviour
     private void OnBrightnessChanged(float value)
     {
         settingsManager.Brightness.SetBrightness(value);
+    }
+
+    public void Back()
+    {
+        pausePanel.SetActive(true);
+        settingsPanel.SetActive(false); 
     }
 }
