@@ -493,6 +493,8 @@ MonoBehaviour:
   settingsManager: {fileID: 2006993192}
   masterVolumeSlider: {fileID: 1543675224}
   brightnessSlider: {fileID: 919974644}
+  pausePanel: {fileID: 0}
+  settingsPanel: {fileID: 0}
 --- !u!114 &248579497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,7 +1191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -8326674809783750357, guid: 569095a4b13679a48befb16557dc202c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
